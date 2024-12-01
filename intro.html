@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Intro</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: black;
+      color: green;
+      margin: 0;
+      overflow: hidden;
+    }
+    .terminal {
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .terminal span {
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal" id="terminal"></div>
+  <script>
+    const terminal = document.getElementById("terminal");
+    const lines = [
+      "Connecting to server...",
+      "Accessing mainframe...",
+      "Downloading protocols...",
+      "Decryption in progress...",
+      "Welcome to the Hacking Console!"
+    ];
+
+    let index = 0;
+
+    function displayLines() {
+      if (index < lines.length) {
+        const span = document.createElement("span");
+        span.textContent = lines[index];
+        terminal.appendChild(span);
+        index++;
+        setTimeout(displayLines, 1000);
+      } else {
+        setTimeout(() => (window.location.href = "chatbot.html"), 2000); // Redirect to chatbot UI.
+      }
+    }
+
+    displayLines();
+  </script>
+</body>
+</html>
